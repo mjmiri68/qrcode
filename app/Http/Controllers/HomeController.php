@@ -13,7 +13,7 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function generator(){
+    public function generator(Request $request){
         $options = new QROptions(
             [
               'eccLevel' => QRCode::ECC_L,
@@ -22,10 +22,10 @@ class HomeController extends Controller
             ]
           );
           
-          $qrcode = (new QRCode($options))->render('https://twilio.com');
+          $qrcode = (new QRCode($options))->render($request->qrcode);
           $data = [
             'qrcode' => $qrcode
           ];
-         
+          return view('home',$data);
     }
 }

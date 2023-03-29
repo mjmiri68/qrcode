@@ -7,9 +7,7 @@
             class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3">
             <div class="col-md-3 mb-2 mb-md-0">
                 <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
-                    <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap">
-                        <use xlink:href="#bootstrap"></use>
-                    </svg>
+                    <img src="{{asset('assets/img/qrcode.png')}}" class="logo" alt="qrcode">
                     QR CODE
                 </a>
             </div>
@@ -18,7 +16,6 @@
                 <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
                 <li><a href="#" class="nav-link px-2">Features</a></li>
                 <li><a href="#" class="nav-link px-2">Pricing</a></li>
-                <li><a href="#" class="nav-link px-2">FAQs</a></li>
                 <li><a href="#" class="nav-link px-2">About</a></li>
             </ul>
 
@@ -34,11 +31,22 @@
     <div class="mypanel d-flex flex-wrap align-items-center justify-content-center justify-content-md-between">
         <div class="container">
             <div class="row">
-                <div class="col-6">
-                    a
+                <div class="col-6 text-center">
+                    @if (isset($qrcode))
+                        <img src="{{$qrcode}}" class="qrcode-img" alt="qrcode">
+                    @else
+                        <img src="{{asset('assets/img/qrcode.png')}}" class="qrcode-img" alt="qrcode">
+                    @endif
                 </div>
                 <div class="col-6">
-                    b
+                    <form method="post">
+                        @CSRF
+                        <textarea name="qrcode" id="message" class="form textarea"  placeholder="TEXT, URL , ..."></textarea>
+                        <div class="relative fullwidth col-xs-12">
+                            <!-- Send Button -->
+                            <button type="submit" id="submit" name="submit" class="form-btn semibold button">Generate</button> 
+                        </div><!-- End Bottom Submit -->
+                    </form>
                 </div>
             </div>
         </div>
