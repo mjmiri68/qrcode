@@ -1,0 +1,26 @@
+body{
+    background: #e8eef2;
+}
+
+.header{
+    box-shadow: 0 0 20px rgba(0,0,0,.25);
+}
+
+.home{
+    background-color: #247F4F;
+    width: 100%;
+    height: 100vh;
+    padding-top: 60px;
+}
+
+.mypanel{
+    justify-content: center;
+    -webkit-justify-content: center;
+    width: 50%;
+    height: 500px;
+    box-shadow: 0 0 20px rgba(0,0,0,.25);
+    position: relative;
+    margin: 0 auto;
+    border-radius: 5px;
+    background: #e8eef2;
+}
